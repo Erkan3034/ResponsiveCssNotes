@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS - Erkan_Turgut</title>
+    <style>
+
+        /* Bu komutlarla, sayfada bulunan tüm kutuların (border-box) ile değiştirilen boyutların kutu boyutuna dahil edilmesini sağlarız*/
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* <--Media query(media- css kod sorgusu) ile boyut belirlenen boyuta gelince uygulancak komutlar--> */
+        /* "and" word is for the css code query*/
+        @media screen and (max-width:400px) {
+
+            /*İt's mean, when screen width  is less than or equal to 400 pixels, make the body color red*/
+            body {
+                background-color: beige;
+            }
+        }
+
+        /*apply this feature if the device is held horizontally(cihaz yatay konuma gelince uygulanacak komutlar*/
+        @media screen and (orientation:landspace)and (min-width:600px) {
+            body {
+                background-color: rgb(222, 149, 54);
+            }
+        }
+
+        /* Sayfada fare ile seçilen içeriğe uygulanacak komutlar*/
+        ::selection {
+            color: green;
+            background-color: rgb(225, 149, 149);
+        }
+
+        /*Kutu genişlikleri (12 sütun/100) - "Grid tabanlı site"*/
+        /* --CSS sütun genişlik ayarları 12 sütuna göre işlendiği için (100/12) = 8.33px değerinde her sütun genişliğ meydana gelir. Sütun ayırma işlemlerimizi buna göre yaparız-- */
+
+        /* col-1 klasında bulunan kutuya uygulanacak işlem.*/
+        .col-1 {
+            width: 8.33%;
+        }
+
+        /* col-2 klasında bulunan kutuya uygulanacak işlem.*/
+        .col-2 {
+            width: 16.66%;
+        }
+
+        /* col-3 klasında bulunan kutuya uygulanacak işlem.*/
+        .col-3 {
+            width: 25%;
+        }
+
+        /* col-4 klasında bulunan kutuya uygulanacak işlem.*/
+        .col-4 {
+            width: 33.33%;
+        }
+
+        /* col-5 klasında bulunan kutuya uygulanacak işlem.*/
+        .col-5 {
+            width: 41.66%;
+        }
+
+        /* col-6 klasında bulunan kutuya uygulanacak işlem.*/
+        .col-6 {
+            width: 50%;
+        }
+
+        /* col-7 klasında bulunan kutuya uygulanacak işlem.*/
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        /* "col-" sınıfında bulunan tüm komutlara işlenecek komutlar*/
+        [class*="col-"] {
+            float: left; /*sütunları yanyana getir*/
+            border: 1px red solid;
+            padding: 15px;
+        }
+
+
+        /* row classı sonrasına uygulanacak komutlar(yani satırların yanyana gelmesini engelle)*/
+        .row::after {
+            content: "";    /* satırdan sonra bir şey varsa siler, boşluk ekler*/
+            clear: both;    /* herhangi bir float uygulandıysa her ikisini de temizle*/
+            display: table;  /*sanki bir tabloymuş gibi göster*/
+            
+        }
+
+        /*768 px'den küçük ekranlarda kutu genişliğinin  100% olması için gerekli komutlar(her kutu alt alta ekrana tam sığacak şekilde sıralanır)*/
+        @media only screen and (max-width:768px) {
+            [class*="col-"] {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /*Tepkisel resim - Resimin bulunduğu kutuya yerleşimi ve o kutunun alanına göre biçimlenmesi*/
+        img{
+            width: 100%;
+            height: auto;        
+        }
+        h1{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!--(ROW-1)-->
+    <div id="row1" class="row">
+        
+        <div id="logo" class="col-3 ">
+            <img  src="photos/pexels-tara-winstead-8386440 (1).jpg" alt="">
+        </div>
+
+        <div id="anamaenu" class="col-9">
+            <h1>ANA MENÜ</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. kdjafbskbkadbkasbdkjbskjdbsadsakjdsadasdssd1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+        </div>
+
+    </div>
+
+        <!--(ROW-2)-->
+
+    <div id="row2" class="row">
+        
+        <div id="icerik" class="col-9">
+           <h1> İÇERİK </h1>
+           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+
+        <div id="yanmenu" class="col-3">
+            <h1>YAN MENÜ</h1> 
+            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+    </div>
+
+        <!--(ROW-3)-->
+        <div id="row3" class="row">
+           
+            <div id="altsol" class="col-4">
+                 <h1>ALT SOL</h1>
+                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+
+            <div id="altorta" class="col-4">
+                <h1> ALT ORTA</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+
+            <div id="altsag" class="col-4">
+                <h1>ALT SAĞ </h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+
+        </div>
+</body>
+
+</html>
